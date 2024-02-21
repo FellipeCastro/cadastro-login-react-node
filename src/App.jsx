@@ -1,34 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import * as yup from 'yup'
+
 import './App.css'
+import FormLogin from './components/FormLogin'
+import FormCadastro from './components/FormCadastro'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  // Login
+  const handleClickLogin = (values) => {
+    console.log(values)
+  }
+
+  const validationLogin = yup.object().shape({
+    email: yup
+      .string()
+      .email("Digite um e-mail válido")
+      .required("Este campo é obrigatório"),
+    password: yup
+      .string()
+      .min(8, "A senha deve ter, no mínimo, 8 caracteres")
+      .required("Este campo é obrigatório"),
+  })
+
+  // Cadastro
+  const handleClickCadastro = (values) => {
+    console.log(values)
+  }
+
+  const validationCadastro = yup.object().shape({
+    email: yup
+      .string()
+      .email("Digite um e-mail válido")
+      .required("Este campo é obrigatório"),
+    password: yup
+      .string()
+      .min(8, "A senha deve ter, no mínimo, 8 caracteres")
+      .required("Este campo é obrigatório"),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref('password'), null], "As senhas não são iguais")
+  })
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='container'>
+      <FormLogin 
+        handleClickLogin={handleClickLogin}
+        validationLogin={validationLogin}
+      />
+      <hr />
+      <FormCadastro 
+        handleClickCadastro={handleClickCadastro}
+        validationCadastro={validationCadastro}
+      />
+    </div>
   )
 }
 
