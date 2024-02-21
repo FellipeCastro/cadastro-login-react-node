@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 
 function FormCadastro({ handleClickCadastro, validationCadastro }) {
@@ -41,6 +42,8 @@ function FormCadastro({ handleClickCadastro, validationCadastro }) {
                 </div>
 
                 <button type='submit' className='button'>Cadastre-se</button>
+
+                <p className='link'>Já tem uma conta? <Link to='/login'>Entre agora!</Link> </p>
                 </Form>
             </Formik>
         </>

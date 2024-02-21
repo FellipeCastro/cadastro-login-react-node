@@ -1,7 +1,6 @@
 .container {
-    width: 400px;
+    width: 500px;
     height: max-content;
-    margin: 120px auto;
     background-color: #ebebeb;
     padding: 20px 15px;
     border-radius: 10px;
@@ -20,7 +19,7 @@ h1 {
 .form-field {
     width: 100%;
     display: inline-block;
-    padding: 10px;
+    padding: 15px;
     margin-top: 10px;
 }
 
@@ -36,9 +35,12 @@ h1 {
     width: 100%;
     margin-top: 10px;
     padding: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
     cursor: pointer;
 }
 
-hr {
-    margin: 20px 0 10px;
+.link {
+    text-align: center;
+    margin-top: 5px;
 }

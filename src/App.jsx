@@ -1,8 +1,11 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
 import * as yup from 'yup'
 
-import './App.css'
 import FormLogin from './components/FormLogin'
 import FormCadastro from './components/FormCadastro'
+
+import './App.css'
 
 function App() {
 
@@ -42,17 +45,27 @@ function App() {
   })
 
   return (
-    <div className='container'>
-      <FormLogin 
-        handleClickLogin={handleClickLogin}
-        validationLogin={validationLogin}
-      />
-      <hr />
-      <FormCadastro 
-        handleClickCadastro={handleClickCadastro}
-        validationCadastro={validationCadastro}
-      />
-    </div>
+    <Router>
+      <div className='container'>
+        <Routes>
+          <Route exact path='/' element={
+            <FormCadastro 
+              handleClickCadastro={handleClickCadastro}
+              validationCadastro={validationCadastro}
+            />
+          } />
+
+          <Route path='/login' element={
+            <FormLogin 
+              handleClickLogin={handleClickLogin}
+              validationLogin={validationLogin}
+            />            
+          } />
+        </Routes>
+      </div>      
+    </Router>
+
+
   )
 }
 

@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 
 function FormLogin({ handleClickLogin, validationLogin }) {
@@ -31,6 +32,8 @@ function FormLogin({ handleClickLogin, validationLogin }) {
                 </div>
 
                 <button type='submit' className='button'>Login</button>
+
+                <p className='link'>Ainda não tem uma conta? <Link to='/'>Crie uma agora!</Link> </p>
                 </Form>
             </Formik>
         </>
